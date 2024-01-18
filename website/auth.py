@@ -15,7 +15,7 @@ def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
         firstName = request.form.get('firstName')
-        password1 = request.form.get('password1')
+        password1 = request.form.get('password1') #TODO hash password
         password2 = request.form.get('password2')
         if len(email) < 4:
             flash('email must be greater then 4', category="error")
@@ -26,6 +26,6 @@ def sign_up():
         elif len(password1) < 7:
             flash('error', category="error")
         else:
-            flash('error', category="success")    #TODO add user to db    
-    
+            flash('success', category="success")
+
     return render_template("sign_up.html")
